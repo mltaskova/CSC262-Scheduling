@@ -76,6 +76,6 @@ public abstract class Scheduler {
         for (String name : time) {
             sb.append(name);
         }
-        System.out.println("Timeline("+schedulerName+"): "+sb);
+        System.out.println("Timeline(" + schedulerName + "): "+sb);
     }
 }
