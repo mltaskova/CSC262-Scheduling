@@ -45,6 +45,7 @@ The simulation should run every scheduler and print its results in order.
 ### Extra Credit Opportunities:
 
 - Do (some of) it again, but in plain C.
+- Do it in Python or another programming language instead.
 - Try outputting HTML tables or SVG for automatically generating snazzy diagrams.
 - Generate input files automatically.
 - The schedulers run are configurable part of the input.
