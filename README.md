@@ -35,9 +35,11 @@ The simulation should run every scheduler and print its results in order.
     -	Random sampling of next job must be correct.
     - Worksheet #4, #5.
 - (20) Create a "ProbabilityMultiLevelQueue" Scheduler
+    - Jobs enter at highest priority.
     - Jobs move down after being scheduled with probability ***p***.
     - There are ***k*** levels.
     - Parameters ***p*** and ***k*** must be configurable.
+    - Jobs return to highest priority level when all are at the bottom level.
 - (10) Compute average turnaround time after a simulation is run.
 
 ### Extra Credit Opportunities:
