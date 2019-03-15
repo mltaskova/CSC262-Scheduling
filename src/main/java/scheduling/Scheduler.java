@@ -44,7 +44,7 @@ public abstract class Scheduler {
     }
 
     /** A scheduler is done when all jobs are done. */
-    private boolean isDone() {
+    public boolean isDone() {
         for (JobInfo job : this.jobs) {
             // If any job is not done, the answer is no.
             if (!job.hasFinished()) {

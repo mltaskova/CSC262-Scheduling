@@ -48,6 +48,8 @@ public class JobInfo implements Comparable<JobInfo> {
         this.timeRun++;
     }
 
+    public int getTimeRun(){ return timeRun; }
+
     /** 
      * Arrival time getter. 
      * @return the arrivalTime

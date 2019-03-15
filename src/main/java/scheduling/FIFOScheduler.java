@@ -21,16 +21,6 @@ public class FIFOScheduler extends Scheduler {
      */
     @Override
     public JobInfo chooseJob(List<JobInfo> current) {
-        JobInfo min = current.get(0);
-        for (JobInfo j : current) {
-            if (j.getArrivalTime() < min.getArrivalTime()) {
-                min = j;
-            } else if (j.getArrivalTime() == min.getArrivalTime()) {
-                if (j.getName().compareTo(min.getName()) < 0) {
-                    min = j;
-                }
-            }
-        }
-        return min;
+        return Collections.min(current, new ByArrivalTime());
     }
 }

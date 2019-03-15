@@ -33,7 +33,7 @@ public class Main {
    * Main entry point.
    */
   public static void main(String[] args) throws IOException {
-    String inputPath = "fig_7_1.jobs";
+    String inputPath = "input.txt";
     if (args.length == 1) {
       inputPath = args[0];
     }
@@ -63,7 +63,9 @@ public class Main {
     // Create a scheduler.
     for (Scheduler sched : Arrays.asList(
       new FIFOScheduler(jobs),
-      new SJFScheduler(jobs)
+      new SJFScheduler(jobs),
+      new STCFScheduler(jobs),
+      new RRScheduler(jobs)
     )) {
       sched.run();
       sched.printStats(sched.getClass().getSimpleName());
