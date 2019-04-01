@@ -20,6 +20,7 @@ public class DurationLotteryScheduler extends Scheduler {
 
     public List<Double> getWeights(List<JobInfo> current){
         List<Double> weights = new ArrayList<>();
+        totalWeight = 0;
         for (JobInfo job : current){
             totalWeight += (double) job.getDuration();
             weights.add(totalWeight);
@@ -30,12 +31,11 @@ public class DurationLotteryScheduler extends Scheduler {
     @Override
     public JobInfo chooseJob(List<JobInfo> current) {
         double x = Math.random();
-        Collections.sort(current, new ByDuration());
         List<Double> weights = getWeights(current);
         double temp;
         for (int i = 0; i < current.size(); i++){
             temp = weights.get(i);
-            if (1-temp/totalWeight < x && x <= temp/totalWeight) {
+            if (temp/totalWeight > x){
                 return current.get(i);
             }
         }

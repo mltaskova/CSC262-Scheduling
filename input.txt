@@ -1,4 +1,4 @@
 job A 0 20
 job B 10 20
-job C 10 10
-job D 20 50
+job C 10 50
+job D 10 10

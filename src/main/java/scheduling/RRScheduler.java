@@ -43,10 +43,9 @@ public class RRScheduler extends Scheduler {
                 time.add(job.getName());
                 job.runSingleStep();
                 last = job;
-            }
-            for (JobInfo temp : jobsAvailableNow()){
-                for (int i = 0; i < 5; i++){
-                    temp.incrementTimeFinished();
+                if (job.hasFinished()){
+                    job.setTimeFinished(this.getTime());
+                    break;
                 }
             }
         }

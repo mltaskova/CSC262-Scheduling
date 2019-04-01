@@ -53,8 +53,8 @@ public class JobInfo implements Comparable<JobInfo> {
 
     public int getTimeRun(){ return timeRun; }
 
-    public void incrementTimeFinished(){
-        this.timeFinished++;
+    public void setTimeFinished(int time){
+        this.timeFinished = time;
     }
 
     public int getTimeFinished(){

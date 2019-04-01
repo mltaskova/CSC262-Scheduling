@@ -67,9 +67,8 @@ public abstract class Scheduler {
             JobInfo job = chooseJob(jobsAvailableNow());
             time.add(job.getName());
             job.runSingleStep();
-            for (JobInfo temp : jobsAvailableNow()) {
-                temp.incrementTimeFinished();
-            }
+            if (job.hasFinished())
+                job.setTimeFinished(this.getTime());
         }
     }
 
@@ -82,7 +81,7 @@ public abstract class Scheduler {
         System.out.println("Timeline(" + schedulerName + "): "+sb);
         int turnaroundTime;
         for (JobInfo job: jobs) {
-            turnaroundTime = job.getTimeFinished();
+            turnaroundTime = job.getTimeFinished() - job.getArrivalTime();
             System.out.println("job" + job.getName() + " with turnaround time: " + turnaroundTime);
         }
     }
