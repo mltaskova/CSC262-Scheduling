@@ -11,6 +11,8 @@ public class JobInfo implements Comparable<JobInfo> {
     /** How long has this job run so far? */
     private int timeRun;
 
+    private int timeFinished;
+
     /**
      * Construct a new job specification:
      */
@@ -19,6 +21,7 @@ public class JobInfo implements Comparable<JobInfo> {
         this.arrivalTime = arrivalTime;
         this.duration = duration;
         this.timeRun = 0;
+        this.timeFinished = 0;
     }
     
     /** Get the name of this job. */
@@ -49,6 +52,14 @@ public class JobInfo implements Comparable<JobInfo> {
     }
 
     public int getTimeRun(){ return timeRun; }
+
+    public void incrementTimeFinished(){
+        this.timeFinished++;
+    }
+
+    public int getTimeFinished(){
+        return  this.timeFinished;
+    }
 
     /** 
      * Arrival time getter. 

@@ -11,7 +11,7 @@ public abstract class Scheduler {
     private List<JobInfo> jobs;
 
     /** What jobs have run at each timestep? */
-    private List<String> time;
+    protected List<String> time;
 
     /** What time is it? */
     public int getTime() {
@@ -67,6 +67,9 @@ public abstract class Scheduler {
             JobInfo job = chooseJob(jobsAvailableNow());
             time.add(job.getName());
             job.runSingleStep();
+            for (JobInfo temp : jobsAvailableNow()) {
+                temp.incrementTimeFinished();
+            }
         }
     }
 
@@ -77,5 +80,10 @@ public abstract class Scheduler {
             sb.append(name);
         }
         System.out.println("Timeline(" + schedulerName + "): "+sb);
+        int turnaroundTime;
+        for (JobInfo job: jobs) {
+            turnaroundTime = job.getTimeFinished();
+            System.out.println("job" + job.getName() + " with turnaround time: " + turnaroundTime);
+        }
     }
 }

@@ -34,8 +34,12 @@ public class Main {
    */
   public static void main(String[] args) throws IOException {
     String inputPath = "input.txt";
-    if (args.length == 1) {
+    double prob = 0.0;
+    int levels = 0;
+    if (args.length == 3) {
       inputPath = args[0];
+      prob = Double.valueOf(args[1]);
+      levels = Integer.valueOf(args[2]);
     }
 
     // Build up a list of jobs from reading the file.
@@ -65,7 +69,8 @@ public class Main {
       new FIFOScheduler(jobs),
       new SJFScheduler(jobs),
       new STCFScheduler(jobs),
-      new RRScheduler(jobs)
+      new RRScheduler(jobs),
+      new DurationLotteryScheduler(jobs)
     )) {
       sched.run();
       sched.printStats(sched.getClass().getSimpleName());
