@@ -34,15 +34,8 @@ public class Main {
    */
   public static void main(String[] args) throws IOException {
     String inputPath = "input.txt";
-    double prob = 0.0;
-    int levels = 1;
     if (args.length == 1){
       inputPath = args[0];
-    }
-    else if (args.length == 3) {
-      inputPath = args[0];
-      prob = Double.valueOf(args[1]);
-      levels = Integer.valueOf(args[2]);
     }
 
     // Build up a list of jobs from reading the file.

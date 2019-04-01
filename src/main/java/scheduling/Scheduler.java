@@ -79,10 +79,10 @@ public abstract class Scheduler {
             sb.append(name);
         }
         System.out.println("Timeline(" + schedulerName + "): "+sb);
-        int turnaroundTime;
+        int turnaroundTime = 0;
         for (JobInfo job: jobs) {
-            turnaroundTime = job.getTimeFinished() - job.getArrivalTime();
-            System.out.println("job" + job.getName() + " with turnaround time: " + turnaroundTime);
+            turnaroundTime += job.getTimeFinished() - job.getArrivalTime();
         }
+        System.out.println("average turnaround time: " + turnaroundTime/jobs.size());
     }
 }
