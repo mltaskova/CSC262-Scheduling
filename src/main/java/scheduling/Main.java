@@ -36,7 +36,10 @@ public class Main {
     String inputPath = "input.txt";
     double prob = 0.0;
     int levels = 0;
-    if (args.length == 3) {
+    if (args.length == 1){
+      inputPath = args[0];
+    }
+    else if (args.length == 3) {
       inputPath = args[0];
       prob = Double.valueOf(args[1]);
       levels = Integer.valueOf(args[2]);
