@@ -35,7 +35,7 @@ public class Main {
   public static void main(String[] args) throws IOException {
     String inputPath = "input.txt";
     double prob = 0.0;
-    int levels = 0;
+    int levels = 1;
     if (args.length == 1){
       inputPath = args[0];
     }
@@ -74,6 +74,7 @@ public class Main {
       new STCFScheduler(jobs),
       new RRScheduler(jobs),
       new DurationLotteryScheduler(jobs)
+//      new PMLQScheduler(jobs, levels, prob)
     )) {
       sched.run();
       sched.printStats(sched.getClass().getSimpleName());
